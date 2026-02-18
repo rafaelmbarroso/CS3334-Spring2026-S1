@@ -6,7 +6,7 @@ fn referencing() {
     let &z = y;
     println!("z = {}, y = {}, x = {}", z, y, x);
 }
-    */
+    
 
 // Borrowing Issue
 fn borrowref() {
@@ -16,8 +16,18 @@ fn borrowref() {
 
     x += 1;
 }
+    */
+
+fn concatstrings(s1: &String, s2: &String) -> String {
+    let mut sc = s1.clone() += s2.clone();
+    return sc;
+}
 
 fn main() {
     // referencing();
-    borrowref();
+    // borrowref();
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("World!");
+    let result = concatstrings(&s1, &s2);
+    println!("{}", result);
 }
